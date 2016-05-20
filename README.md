@@ -1,9 +1,11 @@
-# Sistemas Embebidos
-Desarrollo de Sistemas en conjunto
+# Cerradura Electrónica
+
+###DESCRIPCIÓN:
+
+En desarrollo
 
 ######Jueves 16 de mayo del 2016 
 
-Creación del repositorio para el desarrollo de aplicaciones de sistemas embebidos. Se agragarán ramas por cada proyecto.
 
 Aquí iré escribiendo todo tipo de avisos y la planificación.
 
