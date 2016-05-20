@@ -27,3 +27,4 @@ Finalmente se colocarán "****" una linea así antes de crear el bloque de actua
 Por favor necesitamos material para crear la interfaz:
 
 Teclado--_datos_--MCU--_datos_--LCD
+**********************
