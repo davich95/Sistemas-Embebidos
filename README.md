@@ -11,6 +11,8 @@ Aquí iré escribiendo todo tipo de avisos y la planificación.
 
 En el archivo *Cambios* se anotarán los cambios (valga la redundancia) que se realice en el código conforme el siguiente formato:
 ****************************************************************************************************
+_Por_: (Nombre de la persona que hizo el cambio)
+
 _Archivo_: Main.c (por ejemplo)
 
 _Fecha_: (útima fecha de cambio) 
@@ -22,6 +24,6 @@ Finalmente se colocarán "****" una linea así antes de crear el bloque de actua
 ****************************************************************************************************
 ######Jueves 17 de mayo del 2016
 
-Por favor necesitamo material para crear la interfaz:
+Por favor necesitamos material para crear la interfaz:
 
 Teclado--_datos_--MCU--_datos_--LCD
