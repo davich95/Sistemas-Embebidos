@@ -22,3 +22,8 @@ Se añadió una función que inicializa el teclado (59-70).
 Finalmente se colocarán "****" una linea así antes de crear el bloque de actualización y al final igual para cerrarlo como en el que estoy escribiendo.
 
 ****************************************************************************************************
+######Jueves 17 de mayo del 2016
+
+Por favor necesitamo material para crear la interfaz:
+
+Teclado--_datos_--MCU--_datos_--LCD
