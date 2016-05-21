@@ -2,13 +2,15 @@
 
 ###DESCRIPCIÓN:
 
-En desarrollo
+En desarrollo.
+_PROGRESO:_ 0.1%
+_INDICACIONES:_
+Aquí iré escribiendo todo tipo de avisos y la planificación.
+
+En la carpeta *Resources* guardaremos todo tipo de recurso, código que nos pueda servir.                                      
 
 ######Jueves 16 de mayo del 2016 
 
-###############################################################
-"#Aquí iré escribiendo todo tipo de avisos y la planificación.#
-###############################################################
 En el archivo *Cambios* se anotarán los cambios (valga la redundancia) que se realice en el código conforme el siguiente formato:
 ****************************************************************************************************
 _Por_: (Nombre de la persona que hizo el cambio)
