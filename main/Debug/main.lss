@@ -3,27 +3,27 @@ main.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         0000007a  00000000  00000000  00000054  2**1
+  0 .text         00000076  00000000  00000000  00000054  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000000  00800060  00800060  000000ce  2**0
+  1 .data         00000000  00800060  00800060  000000ca  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .comment      00000030  00000000  00000000  000000ce  2**0
+  2 .comment      00000030  00000000  00000000  000000ca  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000100  2**2
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000000fc  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 00000020  00000000  00000000  0000013c  2**0
+  4 .debug_aranges 00000020  00000000  00000000  00000138  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00000087  00000000  00000000  0000015c  2**0
+  5 .debug_info   00000087  00000000  00000000  00000158  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 00000053  00000000  00000000  000001e3  2**0
+  6 .debug_abbrev 00000053  00000000  00000000  000001df  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   000000a1  00000000  00000000  00000236  2**0
+  7 .debug_line   000000a0  00000000  00000000  00000232  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000024  00000000  00000000  000002d8  2**2
+  8 .debug_frame  00000024  00000000  00000000  000002d4  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    0000013f  00000000  00000000  000002fc  2**0
+  9 .debug_str    00000136  00000000  00000000  000002f8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_ranges 00000010  00000000  00000000  0000043b  2**0
+ 10 .debug_ranges 00000010  00000000  00000000  0000042e  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -59,31 +59,28 @@ Disassembly of section .text:
   5c:	de bf       	out	0x3e, r29	; 62
   5e:	cd bf       	out	0x3d, r28	; 61
   60:	0e 94 36 00 	call	0x6c	; 0x6c <main>
-  64:	0c 94 3b 00 	jmp	0x76	; 0x76 <_exit>
+  64:	0c 94 39 00 	jmp	0x72	; 0x72 <_exit>
 
 00000068 <__bad_interrupt>:
   68:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
 0000006c <main>:
-#include <avr/io.h>
 
 
 int main(void)
 {
-	DDRA = 0b00001111;
+	// Ahora se está tratando de hacer la interfaz del teclado con el micro y el lcd
+	DDRC = 0b00001111; //Puerto C al teclado 4x4
   6c:	8f e0       	ldi	r24, 0x0F	; 15
-  6e:	8a bb       	out	0x1a, r24	; 26
-	PORTA = 0b11111111;
-  70:	8f ef       	ldi	r24, 0xFF	; 255
-  72:	8b bb       	out	0x1b, r24	; 27
+  6e:	84 bb       	out	0x14, r24	; 20
     while (1) 
     {
 		
     }
-  74:	ff cf       	rjmp	.-2      	; 0x74 <main+0x8>
+  70:	ff cf       	rjmp	.-2      	; 0x70 <main+0x4>
 
-00000076 <_exit>:
-  76:	f8 94       	cli
+00000072 <_exit>:
+  72:	f8 94       	cli
 
-00000078 <__stop_program>:
-  78:	ff cf       	rjmp	.-2      	; 0x78 <__stop_program>
+00000074 <__stop_program>:
+  74:	ff cf       	rjmp	.-2      	; 0x74 <__stop_program>
