@@ -2,4 +2,5 @@
 
 ##Branch Experimental
 
-###Descripción: Ésta será la branch donde experimentaremos los cambios del proyecto
+###Descripción:
+Ésta será la branch donde experimentaremos los cambios del proyecto
