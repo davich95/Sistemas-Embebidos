@@ -11,7 +11,7 @@
 int main(void)
 {
 	// Ahora se está tratando de hacer la interfaz del teclado con el micro y el lcd
-	DDRC = 0b00001111; //Puerto C al teclado 4x4 prueba 1
+	DDRC = 0b00001111; //Puerto C al teclado 4x4 
     while (1) 
     {
 		
