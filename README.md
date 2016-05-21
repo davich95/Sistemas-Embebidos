@@ -32,3 +32,7 @@ Por favor necesitamos material para crear la interfaz:
 
 Teclado--_datos_--MCU--_datos_--LCD
 **********************
+######Sábado 21 de mayo del 2016
+
+Agregada la branch *Experimental*, esa será la versión de nuestro proyecto donde haremos los cambios y experimentaremos si funcionan. Si la versión experimental del proyecto funciona y estamos de acuerdo todos, lo pasaré a la branch *Master* la cual tomaremos como versión final.
+****************
