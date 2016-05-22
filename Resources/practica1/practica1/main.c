@@ -61,7 +61,7 @@ int mostrar(int numero)
 		
 		PORTA=0x10;
 		PORTC=numeros[mil];
-		_delay_ms(100);
+		_delay_ms(1100);
 		
 	}
 	
