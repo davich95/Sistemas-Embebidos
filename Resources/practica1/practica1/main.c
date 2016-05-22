@@ -15,7 +15,6 @@ int aux=0;
 int cont=0;
 int unidad, decena, centena, mil;
 int numeros[10] = {0b1000000, 0b1111001, 0b0100100, 0b0110000, 0b0011001, 0b0010010, 0b0000011, 0b1111000, 0b0000000, 0b0011000};
-
 ISR(INT0_vect){
 	aux=2;
 }
@@ -131,29 +130,34 @@ int main(void)
 }
 */
 int count[10] = {0b1000000, 0b1111001, 0b0100100, 0b0110000, 0b0011001, 0b0010010, 0b0000011, 0b1111000, 0b0000000, 0b0011000};
+int c=0;
+int x=0;
+ISR(INT0_vect) //Incremento	
+{
+	c = 1;
+}
+ISR(INT1_vect) //Decremento
+{
+	c = 2;
+	
+}
+ISR(INT2_vect) //Reset
+{
 
-ISR(INT0_vect)
-{
-	
 }
-ISR(INT1_vect)
-{
-	
-}
-ISR(INT2_vect)
-{
-	
-}
-
 int main(void)
 {
 	sei();
-	GICR = 0b11100000;
-	MCUCR = 0b00001111;
-	MCUCSR = 0b01000000;
+	GICR = 0b11100000; //Habilitar interrupciones 
+	MCUCR = 0b01001111; //Detecta interrupciones por flanco de subida
+	MCUCSR = 0b01000000;//Registro para detectar la interrupcion INT2
 	DDRC = 0b11111111;
 	while(1)
 	{
-		
+		for (int x = 0; c<= 9 ; c++)
+		{
+			PORTC = count[c];
+			_delay_ms(250);
+		}
 	}
 }
