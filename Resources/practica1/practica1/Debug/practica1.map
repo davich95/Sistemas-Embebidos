@@ -413,10 +413,10 @@ END GROUP
  *(.debug_frame)
  .debug_frame   0x00000000       0x90 main.o
 
-.debug_str      0x00000000      0x1ce
+.debug_str      0x00000000      0x1cf
  *(.debug_str)
- .debug_str     0x00000000      0x1ce main.o
-                                0x202 (size before relaxing)
+ .debug_str     0x00000000      0x1cf main.o
+                                0x203 (size before relaxing)
 
 .debug_loc      0x00000000       0xdb
  *(.debug_loc)
