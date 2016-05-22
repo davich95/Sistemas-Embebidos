@@ -3,31 +3,31 @@ practica1.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00000134  00000000  00000000  00000094  2**1
+  0 .text         000001c0  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000014  00800060  00000134  000001c8  2**0
+  1 .data         00000016  00800060  000001c0  00000254  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000002  00800074  00800074  000001dc  2**0
+  2 .bss          00000002  00800076  00800076  0000026a  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  000001dc  2**0
+  3 .comment      00000030  00000000  00000000  0000026a  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000020c  2**2
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000029c  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000038  00000000  00000000  00000248  2**0
+  5 .debug_aranges 00000038  00000000  00000000  000002d8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00000199  00000000  00000000  00000280  2**0
+  6 .debug_info   0000019d  00000000  00000000  00000310  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000110  00000000  00000000  00000419  2**0
+  7 .debug_abbrev 00000110  00000000  00000000  000004ad  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000147  00000000  00000000  00000529  2**0
+  8 .debug_line   0000015c  00000000  00000000  000005bd  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000088  00000000  00000000  00000670  2**2
+  9 .debug_frame  00000090  00000000  00000000  0000071c  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000001c9  00000000  00000000  000006f8  2**0
+ 10 .debug_str    000001ce  00000000  00000000  000007ac  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    000000c1  00000000  00000000  000008c1  2**0
+ 11 .debug_loc    000000db  00000000  00000000  0000097a  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000028  00000000  00000000  00000982  2**0
+ 12 .debug_ranges 00000028  00000000  00000000  00000a55  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -67,18 +67,18 @@ Disassembly of section .text:
   60:	10 e0       	ldi	r17, 0x00	; 0
   62:	a0 e6       	ldi	r26, 0x60	; 96
   64:	b0 e0       	ldi	r27, 0x00	; 0
-  66:	e4 e3       	ldi	r30, 0x34	; 52
+  66:	e0 ec       	ldi	r30, 0xC0	; 192
   68:	f1 e0       	ldi	r31, 0x01	; 1
   6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
   6c:	05 90       	lpm	r0, Z+
   6e:	0d 92       	st	X+, r0
-  70:	a4 37       	cpi	r26, 0x74	; 116
+  70:	a6 37       	cpi	r26, 0x76	; 118
   72:	b1 07       	cpc	r27, r17
   74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
 
 00000076 <__do_clear_bss>:
   76:	20 e0       	ldi	r18, 0x00	; 0
-  78:	a4 e7       	ldi	r26, 0x74	; 116
+  78:	a6 e7       	ldi	r26, 0x76	; 118
   7a:	b0 e0       	ldi	r27, 0x00	; 0
   7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
 
@@ -86,20 +86,20 @@ Disassembly of section .text:
   7e:	1d 92       	st	X+, r1
 
 00000080 <.do_clear_bss_start>:
-  80:	a6 37       	cpi	r26, 0x76	; 118
+  80:	a8 37       	cpi	r26, 0x78	; 120
   82:	b2 07       	cpc	r27, r18
   84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
-  86:	0e 94 7b 00 	call	0xf6	; 0xf6 <main>
-  8a:	0c 94 98 00 	jmp	0x130	; 0x130 <_exit>
+  86:	0e 94 8b 00 	call	0x116	; 0x116 <main>
+  8a:	0c 94 de 00 	jmp	0x1bc	; 0x1bc <_exit>
 
 0000008e <__bad_interrupt>:
   8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
 00000092 <__vector_1>:
-*/
+
 int count[10] = {0b1000000, 0b1111001, 0b0100100, 0b0110000, 0b0011001, 0b0010010, 0b0000011, 0b1111000, 0b0000000, 0b0011000};
-int c=0;
-int x=0;
+int num=0;
+int cont = 1;
 ISR(INT0_vect) //Incremento	
 {
   92:	1f 92       	push	r1
@@ -109,11 +109,11 @@ ISR(INT0_vect) //Incremento
   9a:	11 24       	eor	r1, r1
   9c:	8f 93       	push	r24
   9e:	9f 93       	push	r25
-	c = 1;
+	cont = 1;
   a0:	81 e0       	ldi	r24, 0x01	; 1
   a2:	90 e0       	ldi	r25, 0x00	; 0
-  a4:	90 93 75 00 	sts	0x0075, r25
-  a8:	80 93 74 00 	sts	0x0074, r24
+  a4:	90 93 61 00 	sts	0x0061, r25
+  a8:	80 93 60 00 	sts	0x0060, r24
 }
   ac:	9f 91       	pop	r25
   ae:	8f 91       	pop	r24
@@ -133,11 +133,11 @@ ISR(INT1_vect) //Decremento
   c2:	11 24       	eor	r1, r1
   c4:	8f 93       	push	r24
   c6:	9f 93       	push	r25
-	c = 2;
-  c8:	82 e0       	ldi	r24, 0x02	; 2
-  ca:	90 e0       	ldi	r25, 0x00	; 0
-  cc:	90 93 75 00 	sts	0x0075, r25
-  d0:	80 93 74 00 	sts	0x0074, r24
+	cont = -1;
+  c8:	8f ef       	ldi	r24, 0xFF	; 255
+  ca:	9f ef       	ldi	r25, 0xFF	; 255
+  cc:	90 93 61 00 	sts	0x0061, r25
+  d0:	80 93 60 00 	sts	0x0060, r24
 	
 }
   d4:	9f 91       	pop	r25
@@ -156,64 +156,140 @@ ISR(INT2_vect) //Reset
   e6:	0f b6       	in	r0, 0x3f	; 63
   e8:	0f 92       	push	r0
   ea:	11 24       	eor	r1, r1
-	//x=3;
-	c=c++;
+  ec:	8f 93       	push	r24
+  ee:	9f 93       	push	r25
+	num = -1;
+  f0:	8f ef       	ldi	r24, 0xFF	; 255
+  f2:	9f ef       	ldi	r25, 0xFF	; 255
+  f4:	90 93 77 00 	sts	0x0077, r25
+  f8:	80 93 76 00 	sts	0x0076, r24
+	cont = 1;
+  fc:	81 e0       	ldi	r24, 0x01	; 1
+  fe:	90 e0       	ldi	r25, 0x00	; 0
+ 100:	90 93 61 00 	sts	0x0061, r25
+ 104:	80 93 60 00 	sts	0x0060, r24
 }
-  ec:	0f 90       	pop	r0
-  ee:	0f be       	out	0x3f, r0	; 63
-  f0:	0f 90       	pop	r0
-  f2:	1f 90       	pop	r1
-  f4:	18 95       	reti
+ 108:	9f 91       	pop	r25
+ 10a:	8f 91       	pop	r24
+ 10c:	0f 90       	pop	r0
+ 10e:	0f be       	out	0x3f, r0	; 63
+ 110:	0f 90       	pop	r0
+ 112:	1f 90       	pop	r1
+ 114:	18 95       	reti
 
-000000f6 <main>:
+00000116 <main>:
+	
 int main(void)
 {
 	sei();
-  f6:	78 94       	sei
+ 116:	78 94       	sei
 	GICR = 0b11100000; //Habilitar interrupciones 
-  f8:	80 ee       	ldi	r24, 0xE0	; 224
-  fa:	8b bf       	out	0x3b, r24	; 59
-	MCUCR = 0b01001111; //Detecta interrupciones por flanco de subida
-  fc:	8f e4       	ldi	r24, 0x4F	; 79
-  fe:	85 bf       	out	0x35, r24	; 53
+ 118:	80 ee       	ldi	r24, 0xE0	; 224
+ 11a:	8b bf       	out	0x3b, r24	; 59
+	MCUCR = 0b00001111; //Detecta interrupciones por flanco de subida
+ 11c:	8f e0       	ldi	r24, 0x0F	; 15
+ 11e:	85 bf       	out	0x35, r24	; 53
 	MCUCSR = 0b01000000;//Registro para detectar la interrupcion INT2
- 100:	80 e4       	ldi	r24, 0x40	; 64
- 102:	84 bf       	out	0x34, r24	; 52
+ 120:	80 e4       	ldi	r24, 0x40	; 64
+ 122:	84 bf       	out	0x34, r24	; 52
 	DDRC = 0b11111111;
- 104:	8f ef       	ldi	r24, 0xFF	; 255
- 106:	84 bb       	out	0x14, r24	; 20
+ 124:	8f ef       	ldi	r24, 0xFF	; 255
+ 126:	84 bb       	out	0x14, r24	; 20
+	cont = 1;
+ 128:	81 e0       	ldi	r24, 0x01	; 1
+ 12a:	90 e0       	ldi	r25, 0x00	; 0
+ 12c:	90 93 61 00 	sts	0x0061, r25
+ 130:	80 93 60 00 	sts	0x0060, r24
+		{
+			num = -1;
+		}
+		if ((num == 0) && (cont == -1))
+		{
+			num =10;
+ 134:	4a e0       	ldi	r20, 0x0A	; 10
+ 136:	50 e0       	ldi	r21, 0x00	; 0
+		
+		PORTC = count[num];
+		_delay_ms(250);
+		if ((num==9) && (cont == 1))
+		{
+			num = -1;
+ 138:	6f ef       	ldi	r22, 0xFF	; 255
+ 13a:	7f ef       	ldi	r23, 0xFF	; 255
+	DDRC = 0b11111111;
+	cont = 1;
 	while(1)
 	{
-			//for (int x = 0; c<= 9 ; c++)
-			//{
-				PORTC = count[c];
- 108:	e0 91 74 00 	lds	r30, 0x0074
- 10c:	f0 91 75 00 	lds	r31, 0x0075
- 110:	ee 0f       	add	r30, r30
- 112:	ff 1f       	adc	r31, r31
- 114:	e0 5a       	subi	r30, 0xA0	; 160
- 116:	ff 4f       	sbci	r31, 0xFF	; 255
- 118:	80 81       	ld	r24, Z
- 11a:	85 bb       	out	0x15, r24	; 21
+		
+		PORTC = count[num];
+ 13c:	e0 91 76 00 	lds	r30, 0x0076
+ 140:	f0 91 77 00 	lds	r31, 0x0077
+ 144:	ee 0f       	add	r30, r30
+ 146:	ff 1f       	adc	r31, r31
+ 148:	ee 59       	subi	r30, 0x9E	; 158
+ 14a:	ff 4f       	sbci	r31, 0xFF	; 255
+ 14c:	80 81       	ld	r24, Z
+ 14e:	85 bb       	out	0x15, r24	; 21
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
- 11c:	2f e7       	ldi	r18, 0x7F	; 127
- 11e:	8a e1       	ldi	r24, 0x1A	; 26
- 120:	96 e0       	ldi	r25, 0x06	; 6
- 122:	21 50       	subi	r18, 0x01	; 1
- 124:	80 40       	sbci	r24, 0x00	; 0
- 126:	90 40       	sbci	r25, 0x00	; 0
- 128:	e1 f7       	brne	.-8      	; 0x122 <main+0x2c>
- 12a:	00 c0       	rjmp	.+0      	; 0x12c <main+0x36>
- 12c:	00 00       	nop
- 12e:	ec cf       	rjmp	.-40     	; 0x108 <main+0x12>
+ 150:	2f e7       	ldi	r18, 0x7F	; 127
+ 152:	8a e1       	ldi	r24, 0x1A	; 26
+ 154:	96 e0       	ldi	r25, 0x06	; 6
+ 156:	21 50       	subi	r18, 0x01	; 1
+ 158:	80 40       	sbci	r24, 0x00	; 0
+ 15a:	90 40       	sbci	r25, 0x00	; 0
+ 15c:	e1 f7       	brne	.-8      	; 0x156 <main+0x40>
+ 15e:	00 c0       	rjmp	.+0      	; 0x160 <main+0x4a>
+ 160:	00 00       	nop
+		_delay_ms(250);
+		if ((num==9) && (cont == 1))
+ 162:	80 91 76 00 	lds	r24, 0x0076
+ 166:	90 91 77 00 	lds	r25, 0x0077
+ 16a:	89 30       	cpi	r24, 0x09	; 9
+ 16c:	91 05       	cpc	r25, r1
+ 16e:	59 f4       	brne	.+22     	; 0x186 <main+0x70>
+ 170:	80 91 60 00 	lds	r24, 0x0060
+ 174:	90 91 61 00 	lds	r25, 0x0061
+ 178:	01 97       	sbiw	r24, 0x01	; 1
+ 17a:	89 f4       	brne	.+34     	; 0x19e <main+0x88>
+		{
+			num = -1;
+ 17c:	70 93 77 00 	sts	0x0077, r23
+ 180:	60 93 76 00 	sts	0x0076, r22
+ 184:	0c c0       	rjmp	.+24     	; 0x19e <main+0x88>
+		}
+		if ((num == 0) && (cont == -1))
+ 186:	89 2b       	or	r24, r25
+ 188:	51 f4       	brne	.+20     	; 0x19e <main+0x88>
+ 18a:	80 91 60 00 	lds	r24, 0x0060
+ 18e:	90 91 61 00 	lds	r25, 0x0061
+ 192:	01 96       	adiw	r24, 0x01	; 1
+ 194:	21 f4       	brne	.+8      	; 0x19e <main+0x88>
+		{
+			num =10;
+ 196:	50 93 77 00 	sts	0x0077, r21
+ 19a:	40 93 76 00 	sts	0x0076, r20
+		}
+		num = num+cont;
+ 19e:	20 91 76 00 	lds	r18, 0x0076
+ 1a2:	30 91 77 00 	lds	r19, 0x0077
+ 1a6:	80 91 60 00 	lds	r24, 0x0060
+ 1aa:	90 91 61 00 	lds	r25, 0x0061
+ 1ae:	82 0f       	add	r24, r18
+ 1b0:	93 1f       	adc	r25, r19
+ 1b2:	90 93 77 00 	sts	0x0077, r25
+ 1b6:	80 93 76 00 	sts	0x0076, r24
+		
+		
+	}
+ 1ba:	c0 cf       	rjmp	.-128    	; 0x13c <main+0x26>
 
-00000130 <_exit>:
- 130:	f8 94       	cli
+000001bc <_exit>:
+ 1bc:	f8 94       	cli
 
-00000132 <__stop_program>:
- 132:	ff cf       	rjmp	.-2      	; 0x132 <__stop_program>
+000001be <__stop_program>:
+ 1be:	ff cf       	rjmp	.-2      	; 0x1be <__stop_program>

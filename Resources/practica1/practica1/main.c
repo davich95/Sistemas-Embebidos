@@ -61,7 +61,7 @@ int mostrar(int numero)
 		
 		PORTA=0x10;
 		PORTC=numeros[mil];
-		_delay_ms(1100);
+		_delay_ms(100);
 		
 	}
 	
@@ -73,10 +73,10 @@ int main(void)
 	DDRC=0xff;
 	DDRA=0xf0;
 	PORTA=0x0f;
-	
 	//GICR=0b01000000;//habilitar interrupcion externa 0
 	GICR=0b11100000;//habilitar interrupcion externa 0 1 2
-	MCUCR=0b01001111;//configurar deteccion de interrupcion
+	MCUCR=0b00001111;//configurar deteccion de interrupcion
+	MCUCSR = 0b01000000;
 	sei();//activador global de interrupciones
 	aux=1;
 	while(1){
@@ -129,35 +129,48 @@ int main(void)
     }
 }
 */
+
 int count[10] = {0b1000000, 0b1111001, 0b0100100, 0b0110000, 0b0011001, 0b0010010, 0b0000011, 0b1111000, 0b0000000, 0b0011000};
-int c=0;
-int x=0;
+int num=0;
+int cont = 1;
 ISR(INT0_vect) //Incremento	
 {
-	c = 1;
+	cont = 1;
 }
 ISR(INT1_vect) //Decremento
 {
-	c = 2;
+	cont = -1;
 	
 }
 ISR(INT2_vect) //Reset
 {
-
+	num = -1;
+	cont = 1;
 }
+	
 int main(void)
 {
 	sei();
 	GICR = 0b11100000; //Habilitar interrupciones 
-	MCUCR = 0b01001111; //Detecta interrupciones por flanco de subida
+	MCUCR = 0b00001111; //Detecta interrupciones por flanco de subida
 	MCUCSR = 0b01000000;//Registro para detectar la interrupcion INT2
 	DDRC = 0b11111111;
+	cont = 1;
 	while(1)
 	{
-		for (int x = 0; c<= 9 ; c++)
+		
+		PORTC = count[num];
+		_delay_ms(250);
+		if ((num==9) && (cont == 1))
 		{
-			PORTC = count[c];
-			_delay_ms(250);
+			num = -1;
 		}
+		if ((num == 0) && (cont == -1))
+		{
+			num =10;
+		}
+		num = num+cont;
+		
+		
 	}
 }
