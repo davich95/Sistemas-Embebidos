@@ -49,19 +49,19 @@ int mostrar(int numero)
 	{
 		PORTA=0x80;
 		PORTC=numeros[unidad];
-		_delay_ms(80);
+		_delay_ms(100);
 		
 		PORTA=0x40;
 		PORTC=numeros[decena];
-		_delay_ms(80);
+		_delay_ms(100);
 		
 		PORTA=0x20;
 		PORTC=numeros[centena];
-		_delay_ms(80);
+		_delay_ms(100);
 		
 		PORTA=0x10;
 		PORTC=numeros[mil];
-		_delay_ms(80);
+		_delay_ms(100);
 		
 	}
 	
@@ -97,7 +97,7 @@ int main(void)
 
 //Version inicial
 /*
-#define F_CPU  1000000UL
+#define F_CPU  8000000UL
 #include <avr/io.h>
 #include <avr/interrupt.h> //Librería para interrupciones
 #include <util/delay.h>

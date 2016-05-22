@@ -23,11 +23,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   9 .debug_frame  000000a0  00000000  00000000  00000a90  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000001e0  00000000  00000000  00000b30  2**0
+ 10 .debug_str    000001f6  00000000  00000000  00000b30  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    0000034f  00000000  00000000  00000d10  2**0
+ 11 .debug_loc    0000034f  00000000  00000000  00000d26  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000048  00000000  00000000  0000105f  2**0
+ 12 .debug_ranges 00000048  00000000  00000000  00001075  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -271,15 +271,15 @@ int mostrar(int numero)
 
 	__builtin_avr_delay_cycles(__ticks_dc);
  1ca:	ef ef       	ldi	r30, 0xFF	; 255
- 1cc:	63 ef       	ldi	r22, 0xF3	; 243
- 1ce:	71 e0       	ldi	r23, 0x01	; 1
+ 1cc:	60 e7       	ldi	r22, 0x70	; 112
+ 1ce:	72 e0       	ldi	r23, 0x02	; 2
  1d0:	e1 50       	subi	r30, 0x01	; 1
  1d2:	60 40       	sbci	r22, 0x00	; 0
  1d4:	70 40       	sbci	r23, 0x00	; 0
  1d6:	e1 f7       	brne	.-8      	; 0x1d0 <mostrar+0xbe>
  1d8:	00 c0       	rjmp	.+0      	; 0x1da <mostrar+0xc8>
  1da:	00 00       	nop
-		_delay_ms(80);
+		_delay_ms(100);
 		
 		PORTA=0x40;
  1dc:	4b bb       	out	0x1b, r20	; 27
@@ -293,15 +293,15 @@ int mostrar(int numero)
  1ee:	60 81       	ld	r22, Z
  1f0:	65 bb       	out	0x15, r22	; 21
  1f2:	ef ef       	ldi	r30, 0xFF	; 255
- 1f4:	63 ef       	ldi	r22, 0xF3	; 243
- 1f6:	71 e0       	ldi	r23, 0x01	; 1
+ 1f4:	60 e7       	ldi	r22, 0x70	; 112
+ 1f6:	72 e0       	ldi	r23, 0x02	; 2
  1f8:	e1 50       	subi	r30, 0x01	; 1
  1fa:	60 40       	sbci	r22, 0x00	; 0
  1fc:	70 40       	sbci	r23, 0x00	; 0
  1fe:	e1 f7       	brne	.-8      	; 0x1f8 <mostrar+0xe6>
  200:	00 c0       	rjmp	.+0      	; 0x202 <mostrar+0xf0>
  202:	00 00       	nop
-		_delay_ms(80);
+		_delay_ms(100);
 		
 		PORTA=0x20;
  204:	3b bb       	out	0x1b, r19	; 27
@@ -315,15 +315,15 @@ int mostrar(int numero)
  216:	60 81       	ld	r22, Z
  218:	65 bb       	out	0x15, r22	; 21
  21a:	ef ef       	ldi	r30, 0xFF	; 255
- 21c:	63 ef       	ldi	r22, 0xF3	; 243
- 21e:	71 e0       	ldi	r23, 0x01	; 1
+ 21c:	60 e7       	ldi	r22, 0x70	; 112
+ 21e:	72 e0       	ldi	r23, 0x02	; 2
  220:	e1 50       	subi	r30, 0x01	; 1
  222:	60 40       	sbci	r22, 0x00	; 0
  224:	70 40       	sbci	r23, 0x00	; 0
  226:	e1 f7       	brne	.-8      	; 0x220 <mostrar+0x10e>
  228:	00 c0       	rjmp	.+0      	; 0x22a <mostrar+0x118>
  22a:	00 00       	nop
-		_delay_ms(80);
+		_delay_ms(100);
 		
 		PORTA=0x10;
  22c:	2b bb       	out	0x1b, r18	; 27
@@ -337,8 +337,8 @@ int mostrar(int numero)
  23e:	60 81       	ld	r22, Z
  240:	65 bb       	out	0x15, r22	; 21
  242:	ef ef       	ldi	r30, 0xFF	; 255
- 244:	63 ef       	ldi	r22, 0xF3	; 243
- 246:	71 e0       	ldi	r23, 0x01	; 1
+ 244:	60 e7       	ldi	r22, 0x70	; 112
+ 246:	72 e0       	ldi	r23, 0x02	; 2
  248:	e1 50       	subi	r30, 0x01	; 1
  24a:	60 40       	sbci	r22, 0x00	; 0
  24c:	70 40       	sbci	r23, 0x00	; 0
@@ -371,22 +371,22 @@ int mostrar(int numero)
 		PORTA=0x80;
  260:	50 e8       	ldi	r21, 0x80	; 128
 		PORTC=numeros[unidad];
-		_delay_ms(80);
+		_delay_ms(100);
 		
 		PORTA=0x40;
  262:	40 e4       	ldi	r20, 0x40	; 64
 		PORTC=numeros[decena];
-		_delay_ms(80);
+		_delay_ms(100);
 		
 		PORTA=0x20;
  264:	30 e2       	ldi	r19, 0x20	; 32
 		PORTC=numeros[centena];
-		_delay_ms(80);
+		_delay_ms(100);
 		
 		PORTA=0x10;
  266:	20 e1       	ldi	r18, 0x10	; 16
  268:	a5 cf       	rjmp	.-182    	; 0x1b4 <mostrar+0xa2>
-		_delay_ms(80);
+		_delay_ms(100);
 		
 	}
 	

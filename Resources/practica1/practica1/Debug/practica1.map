@@ -467,10 +467,10 @@ END GROUP
  *(.debug_frame)
  .debug_frame   0x00000000       0xa0 main.o
 
-.debug_str      0x00000000      0x1e0
+.debug_str      0x00000000      0x1f6
  *(.debug_str)
- .debug_str     0x00000000      0x1e0 main.o
-                                0x214 (size before relaxing)
+ .debug_str     0x00000000      0x1f6 main.o
+                                0x22a (size before relaxing)
 
 .debug_loc      0x00000000      0x34f
  *(.debug_loc)
