@@ -9,7 +9,8 @@
 #include <avr/interrupt.h>
 #include <avr/io.h>
 #include <util/delay.h>
-
+Version Jefferson
+/*
 int aux=0;
 int cont=0;
 int unidad, decena, centena, mil;
@@ -94,7 +95,7 @@ int main(void)
 		}
 	}
 }
-
+*/
 //Version inicial
 /*
 #define F_CPU  8000000UL
@@ -106,7 +107,7 @@ int count[10] = {0b1000000, 0b1111001, 0b0100100, 0b0110000, 0b0011001, 0b001001
 //Fin Variables  
 ISR(INT0_vect)
 {
-	PORTC = 0b1000000;
+
 }
 int main(void)
 {
@@ -129,3 +130,10 @@ int main(void)
     }
 }
 */
+int main(void)
+{
+	while(1)
+	{
+		
+	}
+}
