@@ -9,7 +9,7 @@
 #include <avr/interrupt.h>
 #include <avr/io.h>
 #include <util/delay.h>
-Version Jefferson
+//Version Jefferson
 /*
 int aux=0;
 int cont=0;
@@ -130,8 +130,14 @@ int main(void)
     }
 }
 */
+int count[10] = {0b1000000, 0b1111001, 0b0100100, 0b0110000, 0b0011001, 0b0010010, 0b0000011, 0b1111000, 0b0000000, 0b0011000};
 int main(void)
 {
+	sei();
+	GICR = 0b11100000;
+	MCUCR = 0b00001111;
+	MCUCSR = 0b01000000;
+	DDRC = 0b11111111;
 	while(1)
 	{
 		
