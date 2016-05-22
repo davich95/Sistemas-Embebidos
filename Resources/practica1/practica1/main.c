@@ -131,6 +131,20 @@ int main(void)
 }
 */
 int count[10] = {0b1000000, 0b1111001, 0b0100100, 0b0110000, 0b0011001, 0b0010010, 0b0000011, 0b1111000, 0b0000000, 0b0011000};
+
+ISR(INT0_vect)
+{
+	
+}
+ISR(INT1_vect)
+{
+	
+}
+ISR(INT2_vect)
+{
+	
+}
+
 int main(void)
 {
 	sei();
