@@ -159,9 +159,9 @@ int main(void)
 	while(1)
 	{
 		
-		PORTC = count[num];
-		_delay_ms(250);
-		if ((num==9) && (cont == 1))
+		PORTC = count[num];					//Primera vuuelta: num = 0, cont = 1, 
+		_delay_ms(250);						// condicion 
+		if ((num==9) && (cont == 1))	
 		{
 			num = -1;
 		}
@@ -170,7 +170,5 @@ int main(void)
 			num =10;
 		}
 		num = num+cont;
-		
-		
 	}
 }

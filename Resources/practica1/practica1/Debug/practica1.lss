@@ -19,15 +19,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   7 .debug_abbrev 00000110  00000000  00000000  000004ad  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   0000015c  00000000  00000000  000005bd  2**0
+  8 .debug_line   000001db  00000000  00000000  000005bd  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000090  00000000  00000000  0000071c  2**2
+  9 .debug_frame  00000090  00000000  00000000  00000798  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000001cf  00000000  00000000  000007ac  2**0
+ 10 .debug_str    000001cf  00000000  00000000  00000828  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    000000db  00000000  00000000  0000097b  2**0
+ 11 .debug_loc    000000db  00000000  00000000  000009f7  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000028  00000000  00000000  00000a56  2**0
+ 12 .debug_ranges 00000028  00000000  00000000  00000ad2  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -209,9 +209,9 @@ int main(void)
  134:	4a e0       	ldi	r20, 0x0A	; 10
  136:	50 e0       	ldi	r21, 0x00	; 0
 		
-		PORTC = count[num];
-		_delay_ms(250);
-		if ((num==9) && (cont == 1))
+		PORTC = count[num];					//Primera vuuelta: num = 0, cont = 1, 
+		_delay_ms(250);						// condicion 
+		if ((num==9) && (cont == 1))	
 		{
 			num = -1;
  138:	6f ef       	ldi	r22, 0xFF	; 255
@@ -221,7 +221,7 @@ int main(void)
 	while(1)
 	{
 		
-		PORTC = count[num];
+		PORTC = count[num];					//Primera vuuelta: num = 0, cont = 1, 
  13c:	e0 91 76 00 	lds	r30, 0x0076
  140:	f0 91 77 00 	lds	r31, 0x0077
  144:	ee 0f       	add	r30, r30
@@ -245,8 +245,8 @@ int main(void)
  15c:	e1 f7       	brne	.-8      	; 0x156 <main+0x40>
  15e:	00 c0       	rjmp	.+0      	; 0x160 <main+0x4a>
  160:	00 00       	nop
-		_delay_ms(250);
-		if ((num==9) && (cont == 1))
+		_delay_ms(250);						// condicion 
+		if ((num==9) && (cont == 1))	
  162:	80 91 76 00 	lds	r24, 0x0076
  166:	90 91 77 00 	lds	r25, 0x0077
  16a:	89 30       	cpi	r24, 0x09	; 9
@@ -283,8 +283,6 @@ int main(void)
  1b0:	93 1f       	adc	r25, r19
  1b2:	90 93 77 00 	sts	0x0077, r25
  1b6:	80 93 76 00 	sts	0x0076, r24
-		
-		
 	}
  1ba:	c0 cf       	rjmp	.-128    	; 0x13c <main+0x26>
 
