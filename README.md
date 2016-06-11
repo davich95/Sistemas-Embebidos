@@ -4,7 +4,7 @@
 
 En desarrollo.
 
-_PROGRESO:_ 0.1%
+_PROGRESO:_ 45%
 
 _INDICACIONES:_
 Aquí iré escribiendo todo tipo de avisos y la planificación.
