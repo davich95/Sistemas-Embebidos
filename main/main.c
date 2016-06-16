@@ -58,9 +58,24 @@ int teclado  (void)
 int main(void)
 {
 	char j = '*';
+	configuraciones();
+	lcd_puts("INGRESE LA CLAVE");
+	_delay_ms(1500);
+	lcd_clrscr();
+	while(1)
+	{
+		
+	}
+}
+
+//Código anterior:
+/*
+int main(void)
+{
+	char j = '*';
 	char pass;
 	char b,a;
-	int contador=0;	
+	int contador=0;
 	int bloqueo=0;
 	int autorizacion=0;
 	int cambio=0;
@@ -73,17 +88,13 @@ int main(void)
 	lcd_clrscr();
 	while(1)
 	{
-		
-	}
-}
-//Codigo anterior
-/*i=teclado();	
+		i=teclado();
 		if (i!=20)
 		{
-			lcd_putc(i);//el PUTC sirve para mostrar lo que se escribe en el  LCD 	
+			lcd_putc(i);//el PUTC sirve para mostrar lo que se escribe en el  LCD
 			a=i;
 			contador=contador+1;
-			b=b+a;		
+			b=b+a;
 			if (i=='<')  // cuando presionamos flecha izquierda se borra lo escrito
 			{
 				lcd_clrscr(); // CLR scr  para limpiar el LCD (dejarlo en blanco)
@@ -93,7 +104,7 @@ int main(void)
 			if (i=='M') // si presionamos  M cambiaremos la clave
 			{
 				lcd_clrscr();
-				lcd_puts("CAMBIO DE CLAVE");// PUT s para   mostrar en pantalla 
+				lcd_puts("CAMBIO DE CLAVE");// PUT s para   mostrar en pantalla
 				_delay_ms(2100);
 				lcd_clrscr();
 				lcd_puts("INSERTE CLAVE");
@@ -105,21 +116,21 @@ int main(void)
 				contador=0;
 				b=0;
 			}
-			if (cambio==1){ 
-				if (contador==4){	
-				if (b==pass)
-				{
-					lcd_clrscr();
-					lcd_puts("CORRECTO");
-					_delay_ms(1000);
-					lcd_clrscr();
-					contador=0;
-					b=0;
-					autorizacion=autorizacion+1;
-					lcd_puts("INSERTE NUEVA CLAVE");
-					_delay_ms(1000);
-					lcd_clrscr();
-				}
+			if (cambio==1){
+				if (contador==4){
+					if (b==pass)
+					{
+						lcd_clrscr();
+						lcd_puts("CORRECTO");
+						_delay_ms(1000);
+						lcd_clrscr();
+						contador=0;
+						b=0;
+						autorizacion=autorizacion+1;
+						lcd_puts("INSERTE NUEVA CLAVE");
+						_delay_ms(1000);
+						lcd_clrscr();
+					}
 				}
 			}
 			if (cambio==1){
@@ -140,24 +151,24 @@ int main(void)
 					}
 				}
 			}
-			if (cambio==0){		
-			if (contador==4){
-				if (b==pass){
-					lcd_clrscr();
-					lcd_puts("CLAVE CORRECTA");
-					PORTD=0b00000001;
-					_delay_ms(2000);
-					PORTD=0b00000000;
-					lcd_clrscr();
-					b=0;
-					contador=0;				
-				}else{
-					lcd_clrscr();
-					lcd_puts("CLAVE INCORRECTA");
-					PORTD=0b00000010;
-					_delay_ms(2000);
-					lcd_clrscr();
-					bloqueo=bloqueo+1;
+			if (cambio==0){
+				if (contador==4){
+					if (b==pass){
+						lcd_clrscr();
+						lcd_puts("CLAVE CORRECTA");
+						PORTD=0b00000001;
+						_delay_ms(2000);
+						PORTD=0b00000000;
+						lcd_clrscr();
+						b=0;
+						contador=0;
+						}else{
+						lcd_clrscr();
+						lcd_puts("CLAVE INCORRECTA");
+						PORTD=0b00000010;
+						_delay_ms(2000);
+						lcd_clrscr();
+						bloqueo=bloqueo+1;
 						if (bloqueo>=3)
 						{
 							lcd_clrscr();
@@ -174,17 +185,19 @@ int main(void)
 							lcd_clrscr();
 							lcd_puts("PRESIONE M");
 							_delay_ms(2000);
-						}else{	
+							}else{
 							lcd_puts("INGRESE CLAVE");
 							_delay_ms(2000);
 							lcd_clrscr();
 							PORTD=0x00;
 							b='0';
 							contador=0;
-							}	
-						}	
-				}	
+						}
+					}
+				}
 			}
-		} 
+		}
 		_delay_ms(200);
+	}
+}
 */
