@@ -73,7 +73,11 @@ int main(void)
 	lcd_clrscr();
 	while(1)
 	{
-		i=teclado();	
+		
+	}
+}
+//Codigo anterior
+/*i=teclado();	
 		if (i!=20)
 		{
 			lcd_putc(i);//el PUTC sirve para mostrar lo que se escribe en el  LCD 	
@@ -183,5 +187,4 @@ int main(void)
 			}
 		} 
 		_delay_ms(200);
-	}
-}
+*/
