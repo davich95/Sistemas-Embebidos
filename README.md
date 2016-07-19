@@ -4,7 +4,7 @@
 
 En desarrollo.
 
-_PROGRESO:_ 45%
+_PROGRESO:_ 70%
 
 _INDICACIONES:_
 Aquí iré escribiendo todo tipo de avisos y la planificación.
@@ -40,3 +40,9 @@ Agregada la branch *Experimental*, esa será la versión de nuestro proyecto don
 
 En el branch Experimental está el código provisonal de la cerradura, ahora estoy desarrollando un código para generar claves aleatória y que sean válidas para abrir la cerradura.
 ************************
+######Martes 19 de julio del 2016
+
+He resubido una nueva version del código en el branch Experimental, revisenlo.
+En lo que respecta al firmware falta unos retoques mas y hacer luego de ingresar una pass correcta o incorrecta pida mandar el comando para recibir una password nueva.
+En cuanto al hardware, hay que implementar todo con la comunicacion wifi y LabView
+**************************************************
