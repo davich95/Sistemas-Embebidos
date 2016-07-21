@@ -81,14 +81,17 @@ int main(void)
 	char passv[6];
 	int i = 0;
 	
+	lcd_puts("Bienvenido!");
+	_delay_ms(1000);
 	lcd_clrscr();
 	lcd_puts("Presione A para");
 	lcd_gotoxy(0,1);
-	lcd_puts("obtener una key");
+	lcd_puts("obtener una key.");
 	_delay_ms(2000);
 	lcd_clrscr();
 	while(1)
 	{
+		
 		tecla=teclado();
 		if (tecla!=20)
 		{
@@ -112,26 +115,43 @@ int main(void)
 			}
 			if (i >= 6)
 			{
-				int c=0;
+				int c = 0;
 				for (int i = 0; i<6; i++)
 				{
-					if (passv[i] == vector[i])
+					if (passv[i] == vector[i])		//Compara si los vectores son iguales
 					{
-						c++;
+						c++;						//Por cada vez que una posicion del vector es igual con la del segundo vector, c se incrementa en 1 hasta llegar a 6
+													//Si se ingresa un caracter que no coincida con el vector la variable c no va a incrementar y no va a llegar a 6
 					}
 				}
-				if(c==6)
+				if(c==6)							//Si toda la clave fue ingresada correctamente el contador c llegará a 6 y abrirá la cerradura
 				{
 					lcd_clrscr();
 					lcd_puts("Clave correcta");
 					PORTC = 0b00000001;
 					_delay_ms(1000);
 					PORTC = 0b00000000;
-				}else
+					lcd_clrscr();
+					lcd_puts("Presione A para");
+					lcd_gotoxy(0,1);
+					lcd_puts("obtener una key.");
+					_delay_ms(2000);
+					lcd_clrscr();
+				}
+				else								//Si al menos 1 caracter ingresado es incorrecto, el contador no llegará a 6 y continuará a la siguiente seccion de código
 				{
 					lcd_clrscr();
 					lcd_puts("Clave incorrecta");
+					_delay_ms(1000);
+					lcd_clrscr();
+					lcd_puts("Presione A para");
+					lcd_gotoxy(0,1);
+					lcd_puts("obtener una key.");
+					_delay_ms(2000);
+					lcd_clrscr();
 				}
+				i = 0; //Reiniciar el iterador del vector
+				c = 0; //Reiniciar el contador del vector
 			}
 		}
 	}
