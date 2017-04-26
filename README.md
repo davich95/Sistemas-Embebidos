@@ -4,7 +4,7 @@
 
 En desarrollo.
 
-_PROGRESO:_ 70%
+_PROGRESO:_ 100%
 
 _INDICACIONES:_
 Aquí iré escribiendo todo tipo de avisos y la planificación.
@@ -46,3 +46,4 @@ He resubido una nueva version del código en el branch Experimental, revisenlo.
 En lo que respecta al firmware falta unos retoques mas y hacer luego de ingresar una pass correcta o incorrecta pida mandar el comando para recibir una password nueva.
 En cuanto al hardware, hay que implementar todo con la comunicacion wifi y LabView
 **************************************************
+Terminado.
