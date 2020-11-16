@@ -14,7 +14,7 @@ int main(void)
 	DDRC = 0b00001111; //Puerto C al teclado 4x4 
     while (1) 
     {
-		
+		test
     }
 }
 
